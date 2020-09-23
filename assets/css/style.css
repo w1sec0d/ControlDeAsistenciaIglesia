@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "Baloo";
+    src: url("../fonts/BalooTammudu2-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/RobotoSlab-VariableFont_wght.ttf");
+}
+
+html {
+    font-size: 110%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url("../img/fondoA.jpg");
+    font-family: "Baloo";
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: semi-bold;
+}
+
+.title {
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+}
+
+form {
+    width: 80%;
+}
+
+input[type=submit] {
+    width: 70vw;
+    max-width: 170px;
+    margin: 0rem;
+    padding-top: 1rem;
+    font-size: 1.75rem;
+}
+
+form {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+@media (max-width: 575.98px) {
+    form {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .form-space {
+        margin-bottom: 1rem;
+    }
+    .row {
+        margin: 0;
+    }
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    form {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .form-space {
+        margin-bottom: 1rem;
+    }
+    #main-container {
+        margin: 0;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    form {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #main-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    #main-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
