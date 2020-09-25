@@ -1,40 +1,30 @@
-@font-face {
-    font-family: "Baloo";
-    src: url("../fonts/BalooTammudu2-Regular.ttf");
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url("../fonts/RobotoSlab-VariableFont_wght.ttf");
-}
-
 html {
     font-size: 110%;
+    overflow-x: hidden;
 }
 
 body {
     margin: 0;
     padding: 0;
     background: url("../img/fondoA.jpg");
-    font-family: "Baloo";
+    font-family: 'Lato', sans-serif;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 h1 {
-    font-family: "Roboto";
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 2.5rem;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: semi-bold;
 }
 
-.title {
-    margin-top: 0rem;
-    margin-bottom: 1rem;
+.sede {
+    margin-top: -10px;
 }
 
 form {
@@ -45,7 +35,6 @@ input[type=submit] {
     width: 70vw;
     max-width: 170px;
     margin: 0rem;
-    padding-top: 1rem;
     font-size: 1.75rem;
 }
 
@@ -53,6 +42,39 @@ form {
     padding: 10px;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+    height: 130px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8) !important;
+    z-index: 100;
+}
+
+#pastores p {
+    margin: 0;
+}
+
+.ingreso {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: black;
+    color: white;
+    font-weight: bolder;
+    padding: 5px 5px 0px 20px;
+}
+
+.ingreso svg {
+    position: absolute;
+    top: 25%;
+    left: 0;
 }
 
 
@@ -61,14 +83,17 @@ form {
 @media (max-width: 575.98px) {
     form {
         width: 100%;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        height: auto;
     }
     .form-space {
         margin-bottom: 1rem;
     }
     .row {
         margin: 0;
+    }
+    #logo {
+        width: 60px;
+        height: 60px;
     }
 }
 
@@ -86,29 +111,21 @@ form {
     #main-container {
         margin: 0;
     }
+    #logo {
+        width: 80px;
+        height: 80px;
+    }
 }
 
 
 /* Medium devices (tablets, 768px and up) */
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-    form {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-}
+@media (min-width: 768px) and (max-width: 991.98px) {}
 
 
 /* Large devices (desktops, 992px and up) */
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
-    #main-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
+@media (min-width: 992px) and (max-width: 1199.98px) {}
 
 
 /* Extra large devices (large desktops, 1200px and up) */
