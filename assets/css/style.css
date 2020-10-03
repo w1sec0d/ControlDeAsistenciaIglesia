@@ -27,10 +27,6 @@ h2 {
     margin-top: -10px;
 }
 
-form {
-    width: 80%;
-}
-
 input[type=submit] {
     width: 70vw;
     max-width: 170px;
@@ -38,7 +34,13 @@ input[type=submit] {
     font-size: 1.75rem;
 }
 
-form {
+#main-container {
+    margin: 0;
+    padding: 0;
+}
+
+#main-form {
+    width: 80%;
     padding: 10px;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 20px;
@@ -77,11 +79,29 @@ form {
     left: 0;
 }
 
+footer {
+    padding: 10px;
+    width: 110vw;
+    background: black;
+    color: white;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    color: coral;
+    text-decoration: none;
+    font-weight: 500;
+}
+
 
 /* Extra small devices (portrait phones, less than 576px) */
 
 @media (max-width: 575.98px) {
-    form {
+    #main-form {
         width: 100%;
         height: auto;
     }
@@ -101,15 +121,12 @@ form {
 /* Small devices (landscape phones, 576px and up) */
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-    form {
+    #main-form {
         margin-top: 20px;
         margin-bottom: 20px;
     }
     .form-space {
         margin-bottom: 1rem;
-    }
-    #main-container {
-        margin: 0;
     }
     #logo {
         width: 80px;
