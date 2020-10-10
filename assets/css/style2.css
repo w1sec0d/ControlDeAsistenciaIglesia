@@ -1,11 +1,8 @@
 html {
     font-size: 110%;
-    overflow-x: hidden;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     background-color: rgb(226, 226, 226);
 }
 
@@ -31,7 +28,25 @@ body {
 }
 
 .table-responsive {
-    background: rgba(255, 255, 255, 0.8);
+    width: 90vw;
+}
+
+.excel {
+    background: #28A745!important;
+    border: #28A745!important;
+    color: white!important;
+}
+
+.imprimir {
+    background: #fd7e14!important;
+    border: #fd7e14!important;
+    color: white!important;
+}
+
+.crear {
+    background: #007bff!important;
+    border: #007bff!important;
+    color: white!important;
 }
 
 .button {
