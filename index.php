@@ -9,18 +9,22 @@ require_once "./model/database.php";
     echo "
     <script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>
     ";
-    function formato($hora) //AGREGA AM,M,PM segun el entero de la fecha y adecua la hora
+    function formato($hora, $minutos) //AGREGA AM,M,PM segun el entero de la fecha y adecua la hora
     {
+        if ($minutos == 0) {
+            $minutos = "00";
+        }
         if ($hora < 12) {
-            return $hora . ":00a.m";
-        } else if ($hora >= 13) {
+            return $hora . ":" . $minutos . "a.m";
+        } elseif ($hora >= 13) {
             $hora -= 12;
-            return $hora . ":00p.m";
-        } else if ($hora == 12) {
-            return $hora . ":00m";
+            return $hora . ":" . $minutos . "p.m";
+        } elseif ($hora == 12) {
+            return $hora . ":$minutos" . "m";
         }
     }
-    function formatoDia($dia){
+    function formatoDia($dia)
+    {
         switch ($dia) {
             case 1:
                 return "Domingo";
@@ -114,7 +118,7 @@ require_once "./model/database.php";
             </script>
 
             ";
-        } else if ($arrayResultadoVerificarCupos["CUPOS"] - $PERSONAS < 0) {
+        } elseif ($arrayResultadoVerificarCupos["CUPOS"] - $PERSONAS < 0) {
             if ($arrayResultadoVerificarCupos["CUPOS"] == 0) {
                 echo "
             <script>
@@ -140,7 +144,7 @@ require_once "./model/database.php";
             </script>
             ";
             }
-        } else if (!empty($rowsResultadoVerificarCupos)) {
+        } elseif (!empty($rowsResultadoVerificarCupos)) {
             echo "
             <script>
             Swal.fire({
@@ -229,7 +233,9 @@ require_once "./model/database.php";
                 <h2 class="sede">
                     IGLESIA <?php echo $_SESSION["SEDE"] ?>
                 </h2>
-                <h5>Este formulario es con el fin de organizar la asistencia presencial a los cultos, la cual está limitada por la reglamentación de distanciamiento social para evitar congestión y que usted no pueda ingresar al culto por falta de cupo.</h5>
+                <h5>Este formulario es con el fin de organizar la asistencia presencial a los cultos, la cual está
+                    limitada por la reglamentación de distanciamiento social para evitar congestión y que usted no pueda
+                    ingresar al culto por falta de cupo.</h5>
                 <div class="form-group row">
                     <div class="col-md-6 form-space">
                         <label for="NOMBRE">
@@ -249,7 +255,7 @@ require_once "./model/database.php";
                     </div>
                 </div>
                 <div class="form-group row justify-content-center align-items-center">
-    
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="CULTO">
@@ -263,15 +269,14 @@ require_once "./model/database.php";
                                 <?php
                                 $SEDE = $_SESSION["SEDE"];
                                 $query = "SELECT * FROM CULTOS_CUPOS WHERE SEDE = '$SEDE'";
-                                echo "<p>$query</p>";
                                 $resultado = mysqli_query($conection, $query);
-    
+
                                 while ($arrayResultado = mysqli_fetch_array($resultado)) {
                                     if ($arrayResultado["CUPOS"] > 0) {
-                                        echo "<option value='" . $arrayResultado["ID"] . "'> ".formatoDia($arrayResultado["DIA"])." ".formato($arrayResultado["HORA_INICIO"]) . "-" . formato($arrayResultado["HORA_FIN"]);
+                                        echo "<option value='" . $arrayResultado["ID"] . "'> " . formatoDia($arrayResultado["DIA"]) . " " . formato($arrayResultado["HORA_INICIO"], $arrayResultado["MINUTO_INICIO"]) . "-" . formato($arrayResultado["HORA_FIN"], $arrayResultado["MINUTO_FINAL"]);
                                         echo " | CUPOS:" . $arrayResultado["CUPOS"] . "</option>";
                                     } else {
-                                        echo "<option value='" . $arrayResultado["ID"] . "'> ".formatoDia($arrayResultado["DIA"])." ".formato($arrayResultado["HORA_INICIO"]) . "-" . formato($arrayResultado["HORA_FIN"]);
+                                        echo "<option value='" . $arrayResultado["ID"] . "'> " . formatoDia($arrayResultado["DIA"]) . " " . formato($arrayResultado["HORA_INICIO"], $arrayResultado["MINUTO_INICIO"]) . "-" . formato($arrayResultado["HORA_FIN"], $arrayResultado["MINUTO_FINAL"]);
                                         echo " | IGLESIA LLENA</option>";
                                     }
                                 }
@@ -279,7 +284,7 @@ require_once "./model/database.php";
                             </select>
                         </div>
                     </div>
-    
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -298,7 +303,8 @@ require_once "./model/database.php";
                             </svg>
                             <label for="PERSONAS">¿Cuántas personas van a asistir? (Contándose a usted)</label>
                             <input type="number" name="PERSONAS" class="form-control" min="1" max="10" required>
-                            <small id="peopleHelp" class="form-text text-muted">Porfavor verifique que alguien no haya registrado ya su cupo</small>
+                            <small id="peopleHelp" class="form-text text-muted">Porfavor verifique que alguien no haya
+                                registrado ya su cupo</small>
                         </div>
                     </div>
                 </div>
